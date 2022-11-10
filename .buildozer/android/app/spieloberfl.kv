@@ -1,0 +1,1180 @@
+#:kivy 1.0
+<FeldButton@Button>:
+    size_hint: 3/49, app.Window_ratio*3/49
+    text: ""
+    background_color: .9, .9, .9, 1
+<SiegerScreen>:
+    # Image:
+    #     id:Background_winner
+    #     source: app.BilderPath+'Confetti.gif'#'./Bilder/Confetti.gif'
+    #     size_hint: 0.8, 0.8
+    #     pos_hint:{"x":0.1, "y":0.25}
+    #     anim_loop: 1
+    Label:
+        id: Sieger
+        text: "X ("+app.PlOne+") hat Gewonnen"
+        pos_hint:{"x":0.35, "y":0.65}
+        size_hint: 0.3,0.1
+        font_size:self.width*0.2
+        bold: True
+    Label:
+        id:GameNr
+        text:"Einzelspieler\nSpiele: 1"
+        pos_hint:{"x":0.1, "y":0.35}
+        size_hint: 0.3,0.1
+        halign: "left"
+    Label:
+        id:Stats
+        text:"Von X Gewonnen: 1 (50%)\nVon O Gewonnen: 1 (100%)\n Unentschieden: 0 (0%)"
+        pos_hint:{"x":0.5, "y":0.35}
+        #text_size: self.size/2
+        size_hint: 0.3,0.1
+        halign: "left"
+    Button:
+        id:PlayAggain
+        text: "Nochmal Spielen"
+        on_press:root.btn("NewGame")
+        pos_hint:{"x":0.1, "y":0.225}
+        size_hint: 0.8,0.1
+    Button:
+        id:Hauptmenu
+        text: "Hauptmenu"
+        on_press:root.btn("Hauptmenu")
+        pos_hint:{"x":0.1, "y":0.1}
+        size_hint: 0.8,0.1
+<Einstellungen>:
+    Label:
+        id:EinstellTitel
+        text: "Einstellungen"
+        pos_hint:{"x":0.35, "y":0.9}
+        size_hint: 0.3,0.1
+        bold: True
+    Label:
+        id:Spielm
+        text: "Spielmodus:"
+        pos_hint:{"x":0.1, "y":0.8}
+        size_hint: 0.3,0.1
+    Button:
+        id:SpielModiNormal
+        text: "normal"
+        on_press:root.btn("SpielmodiNormal")
+        pos_hint:{"x":0.4, "y":0.81}
+        size_hint: 0.2,0.08
+        background_color: 0, 1, 0, 5
+        disabled: True
+    Button:
+        id:SpielModiJanni
+        text: "Jannika Spezial"
+        on_press:root.btn("SpielmodiJanni")
+        pos_hint:{"x":0.6, "y":0.81}
+        size_hint: 0.3,0.08
+        background_color: .9, .9, .9, 1
+    Label:
+        id:SpielModiErklärung
+        text: "Erklärung der Spielmodifindest du in der Anleitung"
+        pos_hint:{"x":0.1, "y":0.7}
+        size_hint: 0.8,0.1
+    Label:
+        id:ComputerLvl
+        text: "Schwierigkeit\ndes Gegners:"
+        pos_hint:{"x":0.1, "y":0.6}
+        size_hint: 0.3,0.1
+    Button:
+        id:ComlvlZero
+        text: "0"
+        on_press:root.btn("Comlvl0")
+        pos_hint:{"x":0.4, "y":0.61}
+        size_hint: 0.25,0.08
+        background_color: .9, .9, .9, 1
+    Button:
+        id:ComlvlOne
+        text: "1"
+        on_press:root.btn("Comlvl1")
+        pos_hint:{"x":0.65, "y":0.61}
+        size_hint: 0.25,0.08
+        background_color: 0, 1, 0, 5
+        disabled: True
+    Label:
+        id:Player1Text
+        text: "Spieler 1:"
+        pos_hint:{"x":0.1, "y":0.5}
+        size_hint: 0.3,0.1
+    TextInput:
+        id:Player1Input
+        hint_text: "Spieler 1"
+        text: app.PlOne
+        pos_hint:{"x":0.4, "y":0.51}
+        size_hint: 0.5,0.08
+    Label:
+        id:Player2Text
+        text: "Spieler 2:"
+        pos_hint:{"x":0.1, "y":0.4}
+        size_hint: 0.3,0.1
+    TextInput:
+        id:Player2Input
+        hint_text: "Spieler 2"
+        text: app.PlTwo
+        pos_hint:{"x":0.4, "y":0.41}
+        size_hint: 0.5,0.08
+    Button:
+        id:Submit
+        text: "Submit"
+        on_press:root.btn("Submit")
+        pos_hint:{"x":0.1, "y":0.25}
+        size_hint: 0.8,0.1
+    Button:
+        id:Hauptmenu
+        text: "Hauptmenu"
+        on_press:root.btn("Hauptmenu")
+        pos_hint:{"x":0.1, "y":0.1}
+        size_hint: 0.8,0.1
+<MainSite>:
+    gr0: Green_Rect0
+    bl0: Blue_Rect0
+    re0: Red_Rect0
+    gr1: Green_Rect1
+    bl1: Blue_Rect1
+    re1: Red_Rect1
+    gr2: Green_Rect2
+    bl2: Blue_Rect2
+    re2: Red_Rect2
+    gr3: Green_Rect3
+    bl3: Blue_Rect3
+    re3: Red_Rect3
+    gr4: Green_Rect4
+    bl4: Blue_Rect4
+    re4: Red_Rect4
+    gr5: Green_Rect5
+    bl5: Blue_Rect5
+    re5: Red_Rect5
+    gr6: Green_Rect6
+    bl6: Blue_Rect6
+    re6: Red_Rect6
+    gr7: Green_Rect7
+    bl7: Blue_Rect7
+    re7: Red_Rect7
+    gr8: Green_Rect8
+    bl8: Blue_Rect8
+    re8: Red_Rect8
+
+    canvas.before:
+        Color:
+            rgba: .5, .5, .5, 1
+
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-9*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-9*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-9*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-9*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-9*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-9*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-9*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-9*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-9*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+
+    GreenRect0:
+        id: Green_Rect0
+    BlueRect0:
+        id: Blue_Rect0
+    RedRect0:
+        id: Red_Rect0
+
+    GreenRect1:
+        id: Green_Rect1
+    BlueRect1:
+        id: Blue_Rect1
+    RedRect1:
+        id: Red_Rect1
+
+    GreenRect2:
+        id: Green_Rect2
+    BlueRect2:
+        id: Blue_Rect2
+    RedRect2:
+        id: Red_Rect2
+
+    GreenRect3:
+        id: Green_Rect3
+    BlueRect3:
+        id: Blue_Rect3
+    RedRect3:
+        id: Red_Rect3
+
+    GreenRect4:
+        id: Green_Rect4
+    BlueRect4:
+        id: Blue_Rect4
+    RedRect4:
+        id: Red_Rect4
+
+    GreenRect5:
+        id: Green_Rect5
+    BlueRect5:
+        id: Blue_Rect5
+    RedRect5:
+        id: Red_Rect5
+
+    GreenRect6:
+        id: Green_Rect6
+    BlueRect6:
+        id: Blue_Rect6
+    RedRect6:
+        id: Red_Rect6
+
+    GreenRect7:
+        id: Green_Rect7
+    BlueRect7:
+        id: Blue_Rect7
+    RedRect7:
+        id: Red_Rect7
+
+    GreenRect8:
+        id: Green_Rect8
+    BlueRect8:
+        id: Blue_Rect8
+    RedRect8:
+        id: Red_Rect8
+
+    #Title
+    Label:
+        id:Title
+        text: "Mega Tic Tac Toe"
+        pos_hint:{"x":0.35, "y":0.9}
+        size_hint: 0.3,0.1
+    Label:
+        id:PlayerAmZug
+        text: "X ist am Zug"
+        color: 0.2,0.2,1,1
+        size_hint: 0.3, 0.1
+        pos_hint:{"x":.6, "y":0.85}
+    Label:
+        id:PlayerAmZugName
+        text: app.PlOne
+        color: 0.2,0.2,1,1
+        size_hint: 0.3, 0.1
+        pos_hint:{"x":.6, "y":0.825}
+    #Buttons
+#Line nr.0
+#Board nr.0
+    FeldButton:
+        id: 000
+        on_press:root.Gamebtn(0,0,0) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 010
+        on_press:root.Gamebtn(0,1,0) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 020
+        on_press:root.Gamebtn(0,2,0) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 001
+        on_press:root.Gamebtn(0,0,1) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 011
+        on_press:root.Gamebtn(0,1,1) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 021
+        on_press:root.Gamebtn(0,2,1) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 002
+        on_press:root.Gamebtn(0,0,2) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-8/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 012
+        on_press:root.Gamebtn(0,1,2) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-8/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 022
+        on_press:root.Gamebtn(0,2,2) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-8/(49/app.Window_ratio)}
+#Board nr.1
+    FeldButton:
+        id: 100
+        on_press:root.Gamebtn(1,0,0) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 110
+        on_press:root.Gamebtn(1,1,0) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 120
+        on_press:root.Gamebtn(1,2,0) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 101
+        on_press:root.Gamebtn(1,0,1) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 111
+        on_press:root.Gamebtn(1,1,1) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 121
+        on_press:root.Gamebtn(1,2,1) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 102
+        on_press:root.Gamebtn(1,0,2) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-8/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 112
+        on_press:root.Gamebtn(1,1,2) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-8/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 122
+        on_press:root.Gamebtn(1,2,2) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-8/(49/app.Window_ratio)}
+#Board nr.2
+    FeldButton:
+        id: 200
+        on_press:root.Gamebtn(2,0,0) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 210
+        on_press:root.Gamebtn(2,1,0) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 220
+        on_press:root.Gamebtn(2,2,0) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-0/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 201
+        on_press:root.Gamebtn(2,0,1) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 211
+        on_press:root.Gamebtn(2,1,1) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 221
+        on_press:root.Gamebtn(2,2,1) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-4/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 202
+        on_press:root.Gamebtn(2,0,2) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-8/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 212
+        on_press:root.Gamebtn(2,1,2) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-8/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 222
+        on_press:root.Gamebtn(2,2,2) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-8/(49/app.Window_ratio)}
+#Line nr.1
+#Board nr.3
+    FeldButton:
+        id: 300
+        on_press:root.Gamebtn(3,0,0) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 310
+        on_press:root.Gamebtn(3,1,0) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 320
+        on_press:root.Gamebtn(3,2,0) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 301
+        on_press:root.Gamebtn(3,0,1) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 311
+        on_press:root.Gamebtn(3,1,1) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 321
+        on_press:root.Gamebtn(3,2,1) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 302
+        on_press:root.Gamebtn(3,0,2) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-24/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 312
+        on_press:root.Gamebtn(3,1,2) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-24/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 322
+        on_press:root.Gamebtn(3,2,2) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-24/(49/app.Window_ratio)}
+#Board nr.4
+    FeldButton:
+        id: 400
+        on_press:root.Gamebtn(4,0,0) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 410
+        on_press:root.Gamebtn(4,1,0) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 420
+        on_press:root.Gamebtn(4,2,0) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 401
+        on_press:root.Gamebtn(4,0,1) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 411
+        on_press:root.Gamebtn(4,1,1) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 421
+        on_press:root.Gamebtn(4,2,1) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 402
+        on_press:root.Gamebtn(4,0,2) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-24/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 412
+        on_press:root.Gamebtn(4,1,2) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-24/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 422
+        on_press:root.Gamebtn(4,2,2) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-24/(49/app.Window_ratio)}
+#Board nr.5
+    FeldButton:
+        id: 500
+        on_press:root.Gamebtn(5,0,0) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 510
+        on_press:root.Gamebtn(5,1,0) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 520
+        on_press:root.Gamebtn(5,2,0) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-16/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 501
+        on_press:root.Gamebtn(5,0,1) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 511
+        on_press:root.Gamebtn(5,1,1) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 521
+        on_press:root.Gamebtn(5,2,1) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-20/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 502
+        on_press:root.Gamebtn(5,0,2) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-24/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 512
+        on_press:root.Gamebtn(5,1,2) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-24/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 522
+        on_press:root.Gamebtn(5,2,2) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-24/(49/app.Window_ratio)}
+#Line nr.2
+#Board nr.6
+    FeldButton:
+        id: 600
+        on_press:root.Gamebtn(6,0,0) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 610
+        on_press:root.Gamebtn(6,1,0) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 620
+        on_press:root.Gamebtn(6,2,0) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 601
+        on_press:root.Gamebtn(6,0,1) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 611
+        on_press:root.Gamebtn(6,1,1) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 621
+        on_press:root.Gamebtn(6,2,1) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 602
+        on_press:root.Gamebtn(6,0,2) #Board, x, y
+        pos_hint:{"x":3/49, "y":.8-40/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 612
+        on_press:root.Gamebtn(6,1,2) #Board, x, y
+        pos_hint:{"x":7/49, "y":.8-40/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 622
+        on_press:root.Gamebtn(6,2,2) #Board, x, y
+        pos_hint:{"x":11/49, "y":.8-40/(49/app.Window_ratio)}
+#Board nr.7
+    FeldButton:
+        id: 700
+        on_press:root.Gamebtn(7,0,0) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 710
+        on_press:root.Gamebtn(7,1,0) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 720
+        on_press:root.Gamebtn(7,2,0) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 701
+        on_press:root.Gamebtn(7,0,1) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 711
+        on_press:root.Gamebtn(7,1,1) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 721
+        on_press:root.Gamebtn(7,2,1) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 702
+        on_press:root.Gamebtn(7,0,2) #Board, x, y
+        pos_hint:{"x":19/49, "y":.8-40/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 712
+        on_press:root.Gamebtn(7,1,2) #Board, x, y
+        pos_hint:{"x":23/49, "y":.8-40/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 722
+        on_press:root.Gamebtn(7,2,2) #Board, x, y
+        pos_hint:{"x":27/49, "y":.8-40/(49/app.Window_ratio)}
+#Board nr.8
+    FeldButton:
+        id: 800
+        on_press:root.Gamebtn(8,0,0) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 810
+        on_press:root.Gamebtn(8,1,0) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 820
+        on_press:root.Gamebtn(8,2,0) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-32/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 801
+        on_press:root.Gamebtn(8,0,1) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 811
+        on_press:root.Gamebtn(8,1,1) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 821
+        on_press:root.Gamebtn(8,2,1) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-36/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 802
+        on_press:root.Gamebtn(8,0,2) #Board, x, y
+        pos_hint:{"x":35/49, "y":.8-40/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 812
+        on_press:root.Gamebtn(8,1,2) #Board, x, y
+        pos_hint:{"x":39/49, "y":.8-40/(49/app.Window_ratio)}
+
+    FeldButton:
+        id: 822
+        on_press:root.Gamebtn(8,2,2) #Board, x, y
+        pos_hint:{"x":43/49, "y":.8-40/(49/app.Window_ratio)}
+
+    Label:
+        id:MadeBy
+        text: "Made by Felix"
+        size_hint: 0.1, 0.1
+        pos_hint:{"x":0.8, "y":0.05}
+    Button:
+        id: Hauptmenu
+        text: "Hauptmenu"
+        on_press:root.btn("Hauptmenu") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.075}
+        size_hint: 0.3, 0.05
+
+<GreenRect0@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-9*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect0@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8+4*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect0@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8+4*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect1@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-9*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect1@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8+4*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect1@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8+4*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect2@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-9*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect2@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8+4*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect2@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-0*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8+4*self.width/49-0*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect3@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-9*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect3@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8+4*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect3@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8+4*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect4@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-9*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect4@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8+4*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect4@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8+4*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect5@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-9*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect5@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8+4*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect5@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-1*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8+4*self.width/49-1*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect6@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-9*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect6@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8+4*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect6@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+0*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+0*16*self.width/49,self.height*0.8+4*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect7@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-9*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect7@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8+4*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect7@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+1*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+1*16*self.width/49,self.height*0.8+4*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<GreenRect8@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-9*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 13*self.width/49
+<BlueRect8@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 0, 1, 1
+        Rectangle:
+            pos: 1*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8+4*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+<RedRect8@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: 1*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+        Rectangle:
+            pos: 15*self.width/49+2*16*self.width/49,self.height*0.8-10*self.width/49-2*16*self.width/49 
+            size: 1*self.width/49, 15*self.width/49
+        Rectangle:
+            pos: 2*self.width/49+2*16*self.width/49,self.height*0.8+4*self.width/49-2*16*self.width/49 
+            size: 13*self.width/49, 1*self.width/49
+
+<StartSeite>:
+    Label:
+        id:TitleStartScreen
+        text: "Mega Tic Tac Toe"
+        pos_hint:{"x":0.35, "y":0.9}
+        size_hint: 0.3,0.1
+        bold: True
+    Button:
+        id: Continue
+        text: "Continue"
+        on_press:root.btn("Continue") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.8}
+        size_hint: 0.8, 0.1
+        disabled: True
+    Button:
+        id: StartNewGame
+        text: "New Game"
+        on_press:root.btn("NewGame") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.65}
+        size_hint: 0.8, 0.1
+    Button:
+        id: Anleitung
+        text: "Anleitung/ Regeln"
+        on_press:root.btn("Anleitung") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.5}
+        size_hint: 0.8, 0.1
+    Button:
+        id: Online
+        text: "Online Game"
+        on_press:root.btn("Online") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.35}
+        size_hint: 0.8, 0.1
+        disabled: True
+    Button:
+        id: Einstellungen
+        text: "Einstellungen"
+        on_press:root.btn("Einstellungen") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.2}
+        size_hint: 0.8, 0.1
+    Label:
+        id:MadeBy
+        text: "Made by Felix"
+        size_hint: 0.1, 0.1
+        pos_hint:{"x":0.8, "y":0.05}
+<SpielerAnzahlScreen>:
+    Label:
+        id:TitleSpielerAnzahl
+        text: "Wähle:"
+        pos_hint:{"x":0.35, "y":0.9}
+        size_hint: 0.3,0.1
+        bold: True
+    Button:
+        id: Einzelspieler
+        text: "Einzelspieler Game"
+        on_press:root.btn("Einzelspieler") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.8}
+        size_hint: 0.8, 0.1
+    Button:
+        id: Mehrspieler
+        text: "Mehrspieler Game (lokal)"
+        on_press:root.btn("Mehrspieler") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.65}
+        size_hint: 0.8, 0.1
+    Button:
+        id: Hauptmenu
+        text: "Hauptmenu"
+        on_press:root.btn("Hauptmenu") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.5}
+        size_hint: 0.8, 0.1
+<Anleitung>:
+    Label:
+        id:Anleitung
+        text: "Anleitung"
+        pos_hint:{"x":0.35, "y":0.9}
+        size_hint: 0.3,0.1
+        bold:True
+    Label:
+        id:Spielfeld
+        text: '''Das Feld besteht aus einem großen Tic-Tac-Toe Feld. \nIn jedem Feld befindet sich ein kleines Spielfeld.\nEs gelten die Normalen Tic-Tac-Toe Regeln. Schafft man es \nin einem kleinen Feld 3 in einer Reihe zu haben gewinnt man \ndas Feld. Dieser Sieg gilt als Zeichen im großen Feld. \nDurch 3 in einer Reihe im großen Feld gewinnt man das ganze \nSpiel.\n\nDer erste Spieler darf frei wählen wo er spielt. \nJeder weitere Spielzug ist abhängig vom Vorherigen. \nBsp. X spielt im gewählten kleinen Feld rechts oben. So muss \nder nächste Spieler im rechts oberen Board weiterspielen. \nSpielt O dann in dem Bord in der Mitte, muss X im mittleren \nBoard weiter spielen.\n\nEs gibt zwei verschiedene Spielmodi zur Auswahl\n\nNormal: Wird man in ein Feld geschickt welches bereits ge-\nwonnen ist, so darf man frei wählen wo man weiter spielen \nmöchte.\n\nJannika Spezial: Wird man in ein Feld geschickt welches \nbereits gewonnen ist, so muss in eines der \nfreien Felder spiele aber darf danach im nächsten Board \ndirekt nochmal (beachte die Anzeige wer am Zug ist).'''
+        font_size:self.width*0.035
+        line_wrap: True
+        pos_hint:{"x":0.05, "y":0.6}
+        size_hint: 0.9,0.05
+        halign: "left"
+    # Label:
+    #     id:Springen
+    #     text: '''Der erste Spieler darf frei wählen wo er spielt. \nJeder weitere Spielzug ist abhängig vom Vorherigen. \nBsp. X spielt im gewählten kleinen Feld rechts oben. So muss \nder nächste Spieler im rechts oberen Board weiterspielen. \nSpielt O dann in dem Bord in der Mitte, muss X im mittleren \nBoard weiter spielen. '''
+    #     font_size:self.width*0.035
+    #     # pos_hint:{"x":0.05, "y":0.6}
+    #     # size_hint: 0.9,0.05
+    #     halign: "left"
+    # Label:
+    #     id:Spielmodus
+    #     text: '''Es gibt zwei verschiedene Spielmodi zur Auswahl'''
+    #     font_size:self.width*0.035
+    #     # pos_hint:{"x":0.05, "y":0.5}
+    #     # size_hint: 0.9,0.05
+    #     #halign: "left"
+    # Label:
+    #     id:Spielmodusnomal
+    #     text: '''Normal: Wird man in ein Feld geschickt welches bereits ge-\nwonnen ist, so darf man frei wählen wo man weiter spielen \nmöchte.'''
+    #     font_size:self.width*0.035
+    #     # pos_hint:{"x":0.05, "y":0.45}
+    #     # size_hint: 0.9,0.05
+    #     halign: "left"
+    # Label:
+    #     id:Spielmodusjanni
+    #     text: '''Jannika Spezial: Wird man in ein Feld geschickt welches \nbereits gewonnen ist, so muss in eines der \nfreien Felder spiele aber darf danach im nächsten Board \ndirekt nochmal (beachte die Anzeige wer am Zug ist).'''
+    #     font_size:self.width*0.035
+    #     # pos_hint:{"x":0.05, "y":0.38}
+    #     # size_hint: 0.9,0.05
+    #     halign: "left"
+    Button:
+        id: Zurueck
+        text: "Zurück"
+        on_press:root.btn("Zurueck") #Board, x, y
+        pos_hint:{"x":0.1, "y":0.1}
+        size_hint: 0.8, 0.1

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mega Tic Tac Toe</string>
+    <string name="private_version">a4b0810624b1bb274b7a7ce3ab12784bd5c3b9c6</string>
+    <string name="presplash_color">#000000</string>
+    <string name="urlScheme">kivy</string>
+</resources>
