@@ -8,5 +8,5 @@ It searches in this order:
 - can it block you
 - can it get two in a row
 <!-- end of the list -->
-it never looks bejond this very Board.
-if it has the Option to choose a Board it will do the same calculations for every board an chooses in the same way.
+It never looks bejond this very Board. <br>
+If it has the Option to choose a Board it will do the same calculations for every board an chooses in the same way.
