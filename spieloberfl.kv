@@ -1,8 +1,14 @@
-#:kivy 1.0
+#:kivy 2.0
 <FeldButton@Button>:
     size_hint: 3/49, app.Window_ratio*3/49
     text: ""
     background_color: .9, .9, .9, 1
+<BitteWartenScreen>:
+Label:
+    id:ComputerSpielt
+    text: "Computer spielt gerade\n Bitte warten"
+    size_hint: 0.6, 0.2
+    pos_hint: {"x":0.2, "y":0.5}
 <SiegerScreen>:
     # Image:
     #     id:Background_winner
@@ -38,7 +44,7 @@
         size_hint: 0.8,0.1
     Button:
         id:Hauptmenu
-        text: "Hauptmenu"
+        text: "Hauptmenü"
         on_press:root.btn("Hauptmenu")
         pos_hint:{"x":0.1, "y":0.1}
         size_hint: 0.8,0.1
@@ -66,34 +72,53 @@
         id:SpielModiJanni
         text: "Jannika Spezial"
         on_press:root.btn("SpielmodiJanni")
-        pos_hint:{"x":0.6, "y":0.81}
+        pos_hint:{"x":0.6, "y":0.81} 
         size_hint: 0.3,0.08
         background_color: .9, .9, .9, 1
     Label:
         id:SpielModiErklärung
-        text: "Erklärung der Spielmodifindest du in der Anleitung"
-        pos_hint:{"x":0.1, "y":0.7}
+        text: "Erklärung der Spielmodi findest du in der Anleitung"
+        pos_hint:{"x":0.1, "y":0.73}
         size_hint: 0.8,0.1
     Label:
         id:ComputerLvl
         text: "Schwierigkeit\ndes Gegners:"
-        pos_hint:{"x":0.1, "y":0.6}
+        pos_hint:{"x":0.1, "y":0.65}
         size_hint: 0.3,0.1
     Button:
         id:ComlvlZero
         text: "0"
         on_press:root.btn("Comlvl0")
-        pos_hint:{"x":0.4, "y":0.61}
-        size_hint: 0.25,0.08
+        pos_hint:{"x":0.4, "y":0.67}
+        size_hint: 0.125,0.05
         background_color: .9, .9, .9, 1
     Button:
         id:ComlvlOne
         text: "1"
         on_press:root.btn("Comlvl1")
-        pos_hint:{"x":0.65, "y":0.61}
-        size_hint: 0.25,0.08
+        pos_hint:{"x":0.525, "y":0.67}
+        size_hint: 0.125,0.05
         background_color: 0, 1, 0, 5
         disabled: True
+    Button:
+        id:ComlvlTwo
+        text: "2"
+        on_press:root.btn("Comlvl2")
+        pos_hint:{"x":0.65, "y":0.67}
+        size_hint: 0.125,0.05
+        background_color: .9, .9, .9, 1
+    Button:
+        id:ComlvlThree
+        text: "3"
+        on_press:root.btn("Comlvl3")
+        pos_hint:{"x":0.775, "y":0.67}
+        size_hint: 0.125,0.05
+        background_color: .9, .9, .9, 1
+    Label:
+        id:ComputerLvlErklaerung
+        text: "Bei Level 2 hat der PC bis zu 2 Sec bedenkzeit,\n bei Level 3 bis zu 4 Sec"
+        pos_hint:{"x":0.1, "y":0.58}
+        size_hint: 0.8,0.1
     Label:
         id:Player1Text
         text: "Spieler 1:"
@@ -124,38 +149,38 @@
         size_hint: 0.8,0.1
     Button:
         id:Hauptmenu
-        text: "Hauptmenu"
+        text: "Hauptmenü"
         on_press:root.btn("Hauptmenu")
         pos_hint:{"x":0.1, "y":0.1}
         size_hint: 0.8,0.1
 <MainSite>:
-    gr0: Green_Rect0
-    bl0: Blue_Rect0
-    re0: Red_Rect0
-    gr1: Green_Rect1
-    bl1: Blue_Rect1
-    re1: Red_Rect1
-    gr2: Green_Rect2
-    bl2: Blue_Rect2
-    re2: Red_Rect2
-    gr3: Green_Rect3
-    bl3: Blue_Rect3
-    re3: Red_Rect3
-    gr4: Green_Rect4
-    bl4: Blue_Rect4
-    re4: Red_Rect4
-    gr5: Green_Rect5
-    bl5: Blue_Rect5
-    re5: Red_Rect5
-    gr6: Green_Rect6
-    bl6: Blue_Rect6
-    re6: Red_Rect6
-    gr7: Green_Rect7
-    bl7: Blue_Rect7
-    re7: Red_Rect7
-    gr8: Green_Rect8
-    bl8: Blue_Rect8
-    re8: Red_Rect8
+    gr0: Green_Rect0.__self__
+    bl0: Blue_Rect0.__self__
+    re0: Red_Rect0.__self__
+    gr1: Green_Rect1.__self__
+    bl1: Blue_Rect1.__self__
+    re1: Red_Rect1.__self__
+    gr2: Green_Rect2.__self__
+    bl2: Blue_Rect2.__self__
+    re2: Red_Rect2.__self__
+    gr3: Green_Rect3.__self__
+    bl3: Blue_Rect3.__self__
+    re3: Red_Rect3.__self__
+    gr4: Green_Rect4.__self__
+    bl4: Blue_Rect4.__self__
+    re4: Red_Rect4.__self__
+    gr5: Green_Rect5.__self__
+    bl5: Blue_Rect5.__self__
+    re5: Red_Rect5.__self__
+    gr6: Green_Rect6.__self__
+    bl6: Blue_Rect6.__self__
+    re6: Red_Rect6.__self__
+    gr7: Green_Rect7.__self__
+    bl7: Blue_Rect7.__self__
+    re7: Red_Rect7.__self__
+    gr8: Green_Rect8.__self__
+    bl8: Blue_Rect8.__self__
+    re8: Red_Rect8.__self__
 
     canvas.before:
         Color:
@@ -695,7 +720,7 @@
         pos_hint:{"x":0.8, "y":0.05}
     Button:
         id: Hauptmenu
-        text: "Hauptmenu"
+        text: "Hauptmenü"
         on_press:root.btn("Hauptmenu") #Board, x, y
         pos_hint:{"x":0.1, "y":0.075}
         size_hint: 0.3, 0.05
@@ -1066,7 +1091,6 @@
         text: "Mega Tic Tac Toe"
         pos_hint:{"x":0.35, "y":0.9}
         size_hint: 0.3,0.1
-        bold: True
     Button:
         id: Continue
         text: "Continue"
@@ -1104,6 +1128,7 @@
         text: "Made by Felix"
         size_hint: 0.1, 0.1
         pos_hint:{"x":0.8, "y":0.05}
+
 <SpielerAnzahlScreen>:
     Label:
         id:TitleSpielerAnzahl
@@ -1125,10 +1150,11 @@
         size_hint: 0.8, 0.1
     Button:
         id: Hauptmenu
-        text: "Hauptmenu"
+        text: "Hauptmenü"
         on_press:root.btn("Hauptmenu") #Board, x, y
         pos_hint:{"x":0.1, "y":0.5}
         size_hint: 0.8, 0.1
+
 <Anleitung>:
     Label:
         id:Anleitung
@@ -1138,7 +1164,7 @@
         bold:True
     Label:
         id:Spielfeld
-        text: '''Das Feld besteht aus einem großen Tic-Tac-Toe Feld. \nIn jedem Feld befindet sich ein kleines Spielfeld.\nEs gelten die Normalen Tic-Tac-Toe Regeln. Schafft man es \nin einem kleinen Feld 3 in einer Reihe zu haben gewinnt man \ndas Feld. Dieser Sieg gilt als Zeichen im großen Feld. \nDurch 3 in einer Reihe im großen Feld gewinnt man das ganze \nSpiel.\n\nDer erste Spieler darf frei wählen wo er spielt. \nJeder weitere Spielzug ist abhängig vom Vorherigen. \nBsp. X spielt im gewählten kleinen Feld rechts oben. So muss \nder nächste Spieler im rechts oberen Board weiterspielen. \nSpielt O dann in dem Bord in der Mitte, muss X im mittleren \nBoard weiter spielen.\n\nEs gibt zwei verschiedene Spielmodi zur Auswahl\n\nNormal: Wird man in ein Feld geschickt welches bereits ge-\nwonnen ist, so darf man frei wählen wo man weiter spielen \nmöchte.\n\nJannika Spezial: Wird man in ein Feld geschickt welches \nbereits gewonnen ist, so muss in eines der \nfreien Felder spiele aber darf danach im nächsten Board \ndirekt nochmal (beachte die Anzeige wer am Zug ist).'''
+        text: '''Das Feld besteht aus einem großen Tic-Tac-Toe Feld. \nIn jedem Feld befindet sich ein kleines Spielfeld.\nEs gelten die Normalen Tic-Tac-Toe Regeln. Schafft man es \nin einem kleinen Feld 3 in einer Reihe zu haben gewinnt man \ndas Feld. Dieser Sieg gilt als Zeichen im großen Feld. \nDurch 3 in einer Reihe im großen Feld gewinnt man das ganze \nSpiel.\n\nDer erste Spieler darf frei wählen wo er spielt. \nJeder weitere Spielzug ist abhängig vom Vorherigen. \nBsp. X spielt im gewählten kleinen Feld rechts oben. So muss \nder nächste Spieler im rechts oberen Board weiterspielen. \nSpielt O dann in dem Bord in der Mitte, muss X im mittleren \nBoard weiter spielen.\n\nEs gibt zwei verschiedene Spielmodi zur Auswahl\nNormal: Wird man in ein Feld geschickt welches bereits ge-\nwonnen ist, so darf man frei wählen wo man weiter spielen \nmöchte.\n\nJannika Spezial: Wird man in ein Feld geschickt welches \nbereits gewonnen ist, so muss in eines der \nfreien Felder spiele aber darf danach im nächsten Board \ndirekt nochmal (beachte die Anzeige wer am Zug ist).'''
         font_size:self.width*0.035
         line_wrap: True
         pos_hint:{"x":0.05, "y":0.6}
