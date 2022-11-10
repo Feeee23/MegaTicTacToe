@@ -593,7 +593,7 @@ class Spieloberfl(App):
     # Window_height=NumericProperty(Window.height)
     PlOne=ObjectProperty(PlayerOne)
     PlTwo=ObjectProperty(PlayerTwo)
-    Window.size = (1080/2.5,2273/2.5) #my Phone
+    #Window.size = (1080/2.5,2273/2.5) #Simulate phone size on PC
     print('Find')
     print(resource_find('Bilder'))
     print(resource_find('Confetti.gif'))
@@ -650,10 +650,13 @@ class Spieloberfl(App):
             f.close()
             self.PlOne=PlayerOne
             self.PlTwo=PlayerTwo
-            if SpielModi==1:
-                self.Einstellungen.btn('SpielmodiNormal')
-            elif SpielModi==2:
-                self.Einstellungen.btn('SpielmodiJanni')
+            #set right butten as activated in Settings
+            if SpielModi==1: self.Einstellungen.btn('SpielmodiNormal')
+            elif SpielModi==2: self.Einstellungen.btn('SpielmodiJanni')
+            if Computerlvl==0: self.Einstellungen.btn("Comlvl0")
+            elif Computerlvl==1: self.Einstellungen.btn("Comlvl1")
+            elif Computerlvl==2: self.Einstellungen.btn("Comlvl2")
+            elif Computerlvl==3: self.Einstellungen.btn("Comlvl3")
         else:
             self.screen_manager.current="Einstellungen"
         return self.screen_manager
